@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+
+        <variable
+            name="Presenter"
+            type="com.btd.mystyle.login.LoginContract.Presenter"></variable>
+
+        <variable
+            name="viewmodel"
+            type="com.btd.mystyle.login.LoginViewModel"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp100"
+                android:layout_marginTop="@dimen/dp100"
+                android:gravity="center"
+                android:text="@string/login_title"
+                android:textColor="@color/color_black0"
+                android:textSize="@dimen/sp60"
+                app:font="@{FontStyle.DALMAIS}" />
+
+
+            <RelativeLayout
+                style="@style/styleButtonLogin"
+                android:onClick="@{() -> Presenter.onClickLoginFacebook()}">
+
+                <ImageView
+                    style="@style/styleImageLogin"
+                    android:background="@drawable/ic_facebook" />
+
+                <TextView
+                    style="@style/styleTextLogin"
+                    android:text="@string/login_btn_facebook"
+                    app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/styleButtonLogin"
+                android:onClick="@{() -> Presenter.onClickLoginGoogle()}">
+
+                <ImageView
+                    style="@style/styleImageLogin"
+                    android:background="@drawable/ic_google" />
+
+                <TextView
+                    style="@style/styleTextLogin"
+                    android:text="@string/login_btn_google"
+                    app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+            </RelativeLayout>
+
+            <RelativeLayout style="@style/styleButtonLogin">
+
+                <ImageView
+                    style="@style/styleImageLogin"
+                    android:background="@drawable/ic_twitter" />
+
+                <TextView
+                    style="@style/styleTextLogin"
+                    android:text="@string/login_btn_twitter"
+                    app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                style="@style/styleButtonLogin"
+                android:layout_marginTop="@dimen/dp100"
+                android:onClick="@{() -> Presenter.onClickLoginAnonymous()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/login_btn_anonymous"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sp16"
+                    app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_black2"
+            android:visibility="@{viewmodel.showLoading ? View.VISIBLE : View.GONE}">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

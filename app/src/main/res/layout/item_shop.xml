@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="Shop"
+            type="com.btd.mystyle.data.Shop"></variable>
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp70"
+        android:background="?actionBarItemBackground">
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textSize="@dimen/sp17"
+            app:font="@{FontStyle.ROBOTO_BOLD}" />
+
+        <ImageView
+            android:id="@+id/img_shop"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/tv_count"
+            app:backgroundUrl="@{Shop.icon}" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_toEndOf="@+id/img_shop"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{Shop.name}"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/sp17"
+            app:font="@{FontStyle.ROBOTO_BOLD}" />
+
+        <LinearLayout
+            android:layout_width="@dimen/dp100"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="@dimen/dp35"
+                android:layout_height="@dimen/dp35"
+                android:background="@drawable/background_favorite"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/img_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@{Shop.isFavorite ? @string/favorite_on : @string/favorite_off }"
+                    android:textColor="@color/color_red"
+                    android:textSize="@dimen/sp20"
+                    app:font="@{FontStyle.DESIGN_ICON}" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_number_like"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:text="100"
+                android:textSize="@dimen/sp13"
+                app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:background="@android:color/darker_gray" />
+    </RelativeLayout>
+</layout>

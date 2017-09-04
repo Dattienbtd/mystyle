@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">My Style</string>
+
+    <!--Splash Activity-->
+    <string name="splash_text">MyStyle</string>
+
+    <!--Login Activity-->
+    <string name="login_title">Login</string>
+    <string name="login_btn_anonymous">Login with Anonymous</string>
+    <string name="login_btn_facebook">Login with Facebook</string>
+    <string name="login_btn_google">Login with Google</string>
+    <string name="login_btn_twitter">Login with Twitter</string>
+
+    <!--text icon-->
+    <string name="icon_next"></string>
+    <string name="icon_back"></string>
+
+    <!--AddPostActivity-->
+    <string name="add_post_error">Failed .Please try again !</string>
+
+    <!--Profile Fragment-->
+    <string name="profile_tv_title">Profile</string>
+    <string name="profile_tv_setting">Setting</string>
+    <string name="profile_btn_mystyle">MY STYLE</string>
+    <string name="profile_btn_follow">FOLLOW</string>
+    <string name="profile_tv_post">POSTS</string>
+
+    <!--Top fragment-->
+    <string name="top_tv_title">My Style</string>
+
+    <!--Shop fragment-->
+    <string name="shop_tv_title">Brand</string>
+    <string name="favorite_on"></string>
+    <string name="favorite_off"></string>
+
+</resources>

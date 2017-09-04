@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+
+        <variable
+            name="Item"
+            type="com.btd.mystyle.data.Item"></variable>
+
+    </data>
+
+    <RelativeLayout
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/img_shop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp70"
+            android:gravity="center"
+            android:text="@{Item.icon}"
+            android:textSize="@dimen/sp40"
+            app:font="@{FontStyle.STYLE_ITEM}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_shop"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@{Item.name}"
+            android:textSize="@dimen/sp13" />
+
+    </RelativeLayout>
+</layout>

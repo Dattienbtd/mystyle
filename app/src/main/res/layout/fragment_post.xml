@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+
+        <variable
+            name="Presenter"
+            type="com.btd.mystyle.home.post.PostContract.Presenter"></variable>
+
+        <variable
+            name="Viewmodel"
+            type="com.btd.mystyle.home.post.PostViewModel"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <FrameLayout
+            android:id="@+id/top_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.fenchtose.nocropper.CropperView
+                android:id="@+id/img_cropper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                app:grid_color="@color/colorAccent"
+                app:grid_opacity="0.8"
+                app:grid_thickness="0.8dp">
+
+            </com.fenchtose.nocropper.CropperView>
+
+            <LinearLayout
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="left|bottom"
+                android:layout_margin="@dimen/dp10"
+                android:background="@drawable/background_circ"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickSnap()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:background="@drawable/ic_crop_free_white_24dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="center|bottom"
+                android:layout_margin="@dimen/dp10"
+                android:background="@drawable/background_circ"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickCamera()}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:background="@drawable/icon_camera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="right|bottom"
+                android:layout_margin="@dimen/dp10"
+                android:background="@drawable/background_circ"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickRotate()}">
+
+                <ImageView
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:background="@drawable/ic_rotate_right_white_24dp" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="left|bottom"
+            android:layout_margin="@dimen/dp10"
+            android:background="@drawable/background_circ"
+            android:gravity="center"
+            android:onClick="@{() -> Presenter.onClickNext()}"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:background="@drawable/ic_next" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/top_frame"></android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</layout>

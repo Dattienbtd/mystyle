@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="Post"
+            type="com.btd.mystyle.data.Post"></variable>
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/ll_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp4">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
+                android:background="@drawable/ic_user" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp4"
+                android:layout_toEndOf="@+id/imageView2"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/sp16"
+                        app:font="@{FontStyle.ROBOTO_BOLD}" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="right|center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9:20 06.07.2017"
+                            android:textSize="@dimen/sp13"
+                            app:font="@{FontStyle.ROBOTO_LIGHT}" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="@dimen/dp10"
+                            android:layout_margin="@dimen/dp4"
+                            android:background="@mipmap/ic_launcher" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="date"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/sp15"
+                    app:font="@{FontStyle.ROBOTO_REGULAR}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imageView2"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text="@{Post.description}"
+                    android:textColor="@color/color_black1"
+                    android:textSize="@dimen/sp15"
+                    app:font="@{FontStyle.ROBOTO_REGULAR}" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <com.btd.mystyle.home.top.viewstyle.StyleView
+            android:id="@+id/style_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_profile"
+            android:layout_marginEnd="@dimen/dp4"
+            android:layout_marginStart="@dimen/dp4">
+
+        </com.btd.mystyle.home.top.viewstyle.StyleView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_below="@+id/style_view"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/img_like"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:background="@drawable/ic_like_on" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_toStartOf="@+id/img_like"
+                android:gravity="center"
+                android:text="1000"
+                android:textSize="@dimen/sp16"
+                app:font="@{FontStyle.ROBOTO_BOLD}" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp40"
+                android:layout_toStartOf="@+id/textView2"
+                android:background="@drawable/ic_comment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_toStartOf="@+id/imageView3"
+                android:gravity="center"
+                android:text="1000"
+                android:textSize="@dimen/sp16"
+                app:font="@{FontStyle.ROBOTO_BOLD}" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_black2" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

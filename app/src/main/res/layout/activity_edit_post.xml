@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="Presenter"
+            type="com.btd.mystyle.home.post.edit.EditPostContract.Presenter"></variable>
+
+        <variable
+            name="ViewModel"
+            type="com.btd.mystyle.home.post.edit.EditPostViewModel"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <com.btd.mystyle.home.post.edit.filter.ImageBlurGLSurfaceView
+            android:id="@+id/effects_view"
+            android:layout_width="match_parent"
+            android:layout_height="380dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/effects_view"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:gravity="center|right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_reset"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_margin="@dimen/dp5"
+                    android:background="@android:color/darker_gray"
+                    android:text="Reset"
+                    android:textSize="@dimen/dp10"
+                    android:visibility="gone" />
+
+                <SeekBar
+                    android:id="@+id/seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_done"
+                    android:layout_width="@dimen/dp45"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_margin="@dimen/dp5"
+                    android:background="@android:color/darker_gray"
+                    android:onClick="@{() -> Presenter.onClickDone()}"
+                    android:text="done"
+                    android:textSize="@dimen/dp10" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcv_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp10"></android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

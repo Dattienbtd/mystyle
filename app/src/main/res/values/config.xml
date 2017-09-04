@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_id_facebook">248677845585900</string>
+    <string name="firebase_app_code"></string>
+    <string name="invitation_deep_link"></string>
+    <string name="app_link_url"></string>
+</resources>

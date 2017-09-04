@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1003088595706",
+    "firebase_url": "https://mystyle-f3e67.firebaseio.com",
+    "project_id": "mystyle-f3e67",
+    "storage_bucket": "mystyle-f3e67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003088595706:android:935266cf0b43d617",
+        "android_client_info": {
+          "package_name": "com.btd.mystyle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003088595706-60vv4og84ab0afhcils69u0glq683f8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfLLjW_AWbUF6rO5Evdd2AvmFK_jWq21w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003088595706-60vv4og84ab0afhcils69u0glq683f8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

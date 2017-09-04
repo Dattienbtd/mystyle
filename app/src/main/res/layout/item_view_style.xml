@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+
+
+        <variable
+            name="Item"
+            type="com.btd.mystyle.data.Item"></variable>
+
+        <variable
+            name="Shop"
+            type="com.btd.mystyle.data.Shop"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp4"
+            android:background="@drawable/bg_item_style"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal"
+            android:padding="@dimen/dp10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp10"
+                android:gravity="center"
+                android:text="@{Shop.name}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp13"
+                app:font="@{FontStyle.ROBOTO_MEDIUM}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{Item.icon}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp14"
+                app:font="@{FontStyle.STYLE_ITEM}" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

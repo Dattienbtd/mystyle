@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="actionHandler"
+            type="com.btd.mystyle.home.post.edit.FilterItemActionHandler"></variable>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout3">
+
+                <com.btd.mystyle.view.CustomImageView
+                    android:id="@+id/img_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp5"
+                    android:background="@drawable/nine_patch_icn"
+                    android:scaleType="fitXY"
+                    app:imageBitmap="@{actionHandler.bitmap}" />
+
+                <TextView
+                    android:id="@+id/tv_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@{actionHandler.text}"
+                    android:textColor="@{actionHandler.select ? @color/color_black : @color/color_black1}"
+                    android:textSize="@dimen/sp13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_black1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{actionHandler.select ? View.VISIBLE : View.GONE}"
+                android:layout_alignBottom="@+id/linearLayout3"></LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
