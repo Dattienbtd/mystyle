@@ -10,6 +10,8 @@ import android.opengl.GLUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.btd.mystyle.home.post.edit.FilterImageAdapter;
+
 import java.nio.IntBuffer;
 
 import javax.microedition.khronos.egl.EGLConfig;
@@ -152,6 +154,7 @@ public class ImageBlurGLSurfaceView extends GLSurfaceView implements GLSurfaceVi
         }
         Bitmap mBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
         mBitmap.copyPixelsFromBuffer(ibt);
+        mBitmap = FilterImageAdapter.scaleDown(mBitmap, 512, true);
         return mBitmap;
     }
 

@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.btd.mystyle.data.Grallerry;
 import com.btd.mystyle.databinding.FragmentPostBinding;
 import com.btd.mystyle.home.post.edit.EditPostActivity;
+import com.btd.mystyle.home.post.edit.FilterImageAdapter;
 import com.btd.mystyle.utils.BitmapUtils;
 import com.btd.mystyle.utils.Constants;
 
@@ -122,6 +124,7 @@ public class PostFragment extends Fragment implements PostContract.View {
     public void showAddPost() {
         Bitmap bitmap = fragmentPostBinding.imgCropper.getCroppedBitmap();
         if (bitmap != null) {
+            bitmap = FilterImageAdapter.scaleDown(bitmap, 512, true);
             Intent intent = new Intent(getContext(), EditPostActivity.class);
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
