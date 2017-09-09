@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -18,6 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import id.zelory.compressor.Compressor;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * Created by dattien on 2/26/17.
  */
@@ -28,6 +31,7 @@ public class PostPresenter implements PostContract.Presenter {
     private String mPhotoPath;
     private Bitmap mBitmap;
     private boolean isSnapView = false;
+    private File mActualImage;
 
     public PostPresenter(Context context, PostContract.View view) {
         mContext = context;
@@ -77,6 +81,7 @@ public class PostPresenter implements PostContract.Presenter {
         try {
             image = File.createTempFile(imageFileName, ".jpg", storageDir);
         } catch (IOException e) {
+            mPostView.showError();
             e.printStackTrace();
         }
         mPhotoPath = "file:" + image.getAbsolutePath();
@@ -117,17 +122,42 @@ public class PostPresenter implements PostContract.Presenter {
     @Override
     public void createBitmapCamera() {
         try {
-            mBitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), Uri.parse(mPhotoPath));
-            mPostView.showCropView(mBitmap);
+            mActualImage = BitmapUtils.from(mContext, Uri.parse(mPhotoPath));
+            compressImage();
         } catch (IOException e) {
+            mPostView.showError();
             e.printStackTrace();
         }
     }
 
     @Override
     public void createBitmapGrallery(Uri uri) {
-        mBitmap = BitmapFactory.decodeFile(BitmapUtils.getFilePathFromUri(mContext, uri));
-        mPostView.showCropView(mBitmap);
+        try {
+            mActualImage = BitmapUtils.from(mContext, uri);
+            compressImage();
+        } catch (IOException e) {
+            mPostView.showError();
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    public void compressImage() {
+        if (mActualImage == null) {
+            mPostView.showError();
+            return;
+        }
+        {
+            new Compressor(mContext)
+                    .setMaxWidth(640)
+                    .setMaxHeight(640)
+                    .compressToBitmapAsFlowable(mActualImage)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(bitmap -> {
+                        mBitmap = bitmap;
+                        mPostView.showCropView(mBitmap);
+                    }, throwable -> throwable.printStackTrace());
+        }
+    }
 }

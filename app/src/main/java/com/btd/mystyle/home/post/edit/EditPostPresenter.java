@@ -1,15 +1,6 @@
 package com.btd.mystyle.home.post.edit;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.util.Log;
-
-import java.io.ByteArrayOutputStream;
-
-import rx.Observable;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by dattien on 3/5/17.

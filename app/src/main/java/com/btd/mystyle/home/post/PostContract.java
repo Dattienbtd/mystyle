@@ -29,6 +29,8 @@ public interface PostContract {
         void showSnapView(boolean isSnap);
 
         void showAddPost();
+
+        void showError();
     }
 
     public interface Presenter extends BasePresenter {
@@ -52,6 +54,8 @@ public interface PostContract {
         void createBitmapCamera();
 
         void createBitmapGrallery(Uri uri);
+
+        void compressImage();
     }
 
 }

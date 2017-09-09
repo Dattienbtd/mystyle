@@ -8,7 +8,6 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import com.btd.mystyle.home.post.edit.FilterImageAdapter;
 
@@ -19,6 +18,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class ImageBlurGLSurfaceView extends GLSurfaceView implements GLSurfaceView.Renderer {
 
+    public Bitmap bitmap;
+    int currentEffect = 0;
     private Bitmap bitmapSrc;
     private int imageWidth;
     private int imageHeight;
@@ -27,7 +28,6 @@ public class ImageBlurGLSurfaceView extends GLSurfaceView implements GLSurfaceVi
     private Effect effect;
     private TextureRenderer texRenderer = new TextureRenderer();
     private boolean initialized = false;
-    int currentEffect = 0;
     private int count = 100;
 
     public ImageBlurGLSurfaceView(Context context) {
@@ -135,8 +135,6 @@ public class ImageBlurGLSurfaceView extends GLSurfaceView implements GLSurfaceVi
         setMeasuredDimension(width, width);
     }
 
-    public Bitmap bitmap;
-
     public Bitmap getBitmap() {
         return bitmap;
     }
@@ -154,7 +152,7 @@ public class ImageBlurGLSurfaceView extends GLSurfaceView implements GLSurfaceVi
         }
         Bitmap mBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
         mBitmap.copyPixelsFromBuffer(ibt);
-        mBitmap = FilterImageAdapter.scaleDown(mBitmap, 512, true);
+        mBitmap = FilterImageAdapter.scaleDown(mBitmap, 640, true);
         return mBitmap;
     }
 
