@@ -11,5 +11,7 @@
     <color name="color_black">#000000</color>
     <color name="color_item_style">#80000000</color>
 
+    <color name="color_cam1">#1AFF6900</color>
+
     <color name="color_red">#FFFF4046</color>
 </resources>

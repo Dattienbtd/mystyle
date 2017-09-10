@@ -29,10 +29,10 @@ import java.util.ArrayList;
  */
 
 public class AddPostActivity extends BaseActivity implements AddPostContract.View {
+    public static Bitmap mBitmap = null;
     private ActivityAddPostBinding activityAddPostBinding;
     private AddPostContract.Presenter mPresenter;
     private AddPostViewModel mViewModel;
-    public static Bitmap mBitmap = null;
     private AddPostAdapter adapterItem;
     private AddPostShopAdapter adapterShop;
     private GridLayoutManager mLayout;
@@ -171,6 +171,7 @@ public class AddPostActivity extends BaseActivity implements AddPostContract.Vie
 
     @Override
     protected void onDestroy() {
+        mBitmap = null;
         super.onDestroy();
         mPresenter.unRegisterReceiverLocal();
     }

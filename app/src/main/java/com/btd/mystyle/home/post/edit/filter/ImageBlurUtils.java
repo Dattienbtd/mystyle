@@ -15,29 +15,22 @@ public class ImageBlurUtils {
     public static ArrayList<String> getEffectName() {
         ArrayList<String> effectArray = new ArrayList<String>();
         effectArray.add("none");
-        effectArray.add("autofix");
-        effectArray.add("bw");
-        effectArray.add("brightness");
-        effectArray.add("contrast");
-        effectArray.add("crossprocess");
-        effectArray.add("documentary");
-        //effectArray.add("duotone");
-        effectArray.add("filllight");
-        //effectArray.add("fisheye");
-        //effectArray.add("flipvert");
-        //effectArray.add("fliphor");
-        effectArray.add("grain");
-        effectArray.add("grayscale");
-        effectArray.add("lomoish");
-        //effectArray.add("negative");
-        //effectArray.add("posterize");
-        //effectArray.add("rotate");
-        effectArray.add("saturate");
-        effectArray.add("sepia");
-        effectArray.add("sharpen");
-        effectArray.add("temperature");
-        effectArray.add("tint");
-        effectArray.add("vignette");
+        effectArray.add("A");
+        effectArray.add("B");
+        effectArray.add("C");
+        effectArray.add("D");
+        effectArray.add("E");
+        effectArray.add("F");
+        effectArray.add("G");
+        effectArray.add("H");
+        effectArray.add("I");
+        effectArray.add("J");
+        effectArray.add("K");
+        effectArray.add("L");
+        effectArray.add("M");
+        effectArray.add("O");
+        effectArray.add("P");
+        effectArray.add("Q");
 
         return effectArray;
     }

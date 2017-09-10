@@ -73,4 +73,10 @@ public class EditPostActivity extends BaseActivity implements EditPostContract.V
         startActivity(intent);
     }
 
+    @Override
+    protected void onDestroy() {
+        mBitmap = null;
+        mNewBitmap = null;
+        super.onDestroy();
+    }
 }

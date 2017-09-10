@@ -22,40 +22,40 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:id="@+id/linearLayout3">
+                android:orientation="vertical">
 
-                <com.btd.mystyle.view.CustomImageView
+                <com.btd.mystyle.view.CustomRoundImageView
                     android:id="@+id/img_filter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp5"
+                    android:layout_margin="@dimen/dp3"
                     android:background="@drawable/nine_patch_icn"
-                    android:scaleType="fitXY"
                     app:imageBitmap="@{actionHandler.bitmap}" />
 
                 <TextView
                     android:id="@+id/tv_filter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:gravity="center_horizontal|top"
                     android:text="@{actionHandler.text}"
                     android:textColor="@{actionHandler.select ? @color/color_black : @color/color_black1}"
-                    android:textSize="@dimen/sp13" />
+                    android:textSize="@dimen/sp13"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_value"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/color_black1"
+                android:layout_alignBottom="@+id/linearLayout3"
+                android:background="@drawable/bg_select_image"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:visibility="@{actionHandler.select ? View.VISIBLE : View.GONE}"
-                android:layout_alignBottom="@+id/linearLayout3"></LinearLayout>
+                android:visibility="@{actionHandler.select ? View.VISIBLE : View.GONE}"></LinearLayout>
         </RelativeLayout>
 
     </LinearLayout>

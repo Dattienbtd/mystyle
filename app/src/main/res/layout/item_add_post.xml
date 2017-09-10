@@ -13,14 +13,14 @@
     </data>
 
     <RelativeLayout
-        android:background="?android:attr/selectableItemBackground"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground">
 
         <TextView
             android:id="@+id/img_shop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp70"
+            android:layout_height="@dimen/dp50"
             android:gravity="center"
             android:text="@{Item.icon}"
             android:textSize="@dimen/sp40"
@@ -30,12 +30,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_shop"
-            android:layout_gravity="center"
+            android:layout_gravity="center|top"
+            android:layout_marginBottom="@dimen/dp10"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="1"
             android:text="@{Item.name}"
-            android:textSize="@dimen/sp13" />
+            android:textSize="@dimen/sp10"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </layout>
