@@ -15,7 +15,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground">
+        android:layout_margin="@dimen/dp2"
+        android:background="@drawable/bg_click_image">
 
         <TextView
             android:id="@+id/img_shop"

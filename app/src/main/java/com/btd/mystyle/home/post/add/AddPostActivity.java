@@ -42,6 +42,7 @@ public class AddPostActivity extends BaseActivity implements AddPostContract.Vie
     private ArrayList<Item> listItem = new ArrayList<>();
     private Post mPost;
     private Shop mShop;
+    private Item mItem;
     private int position = -1;
 
     @Override
@@ -74,8 +75,7 @@ public class AddPostActivity extends BaseActivity implements AddPostContract.Vie
         adapterItem.setOnItemClickListener((position, v) -> {
             mViewModel.setShowShop(true);
             adapterShop.setPositionNow(-1);
-            listItem.add(adapterItem.getmListItem().get(position));
-            mPost.setListItem(listItem);
+            mItem = adapterItem.getmListItem().get(position);
         });
         adapterShop.setOnItemClickListener((position, v) -> {
             mShop = adapterShop.getmListItem().get(position);
@@ -137,6 +137,8 @@ public class AddPostActivity extends BaseActivity implements AddPostContract.Vie
             position = -1;
         } else {
             listShop.add(mShop);
+            listItem.add(mItem);
+            mPost.setListItem(listItem);
         }
         mPost.setListShop(listShop);
         activityAddPostBinding.viewStylePost.setPost(mPost);

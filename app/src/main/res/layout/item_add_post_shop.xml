@@ -16,28 +16,31 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@{ItemHandler.now ? @color/color_black2:@android:color/transparent}">
+        android:layout_margin="@dimen/dp2"
+        android:background="@{ItemHandler.now ? @drawable/bg_select_image:@drawable/bg_click_image}">
 
         <com.btd.mystyle.view.CustomImageView
             android:id="@+id/img_shop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/dp20"
-            android:layout_marginRight="@dimen/dp20"
-            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
             app:backgroundUrl="@{Shop.icon}" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/img_shop"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp5"
             android:ellipsize="end"
-            android:gravity="center"
+            android:gravity="center|top"
             android:maxLines="1"
             android:text="@{Shop.name}"
-            android:textSize="@dimen/sp13" />
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sp10"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </layout>

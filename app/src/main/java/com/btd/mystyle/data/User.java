@@ -1,5 +1,6 @@
 package com.btd.mystyle.data;
 
+import com.btd.mystyle.data.source.local.AppSettings;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.io.Serializable;
  */
 @IgnoreExtraProperties
 public class User implements Serializable {
+    public static User user;
     private String id;
     private String email;
     private String username;
@@ -16,16 +18,6 @@ public class User implements Serializable {
     private String brithday;
     private String provider;
     private String description;
-
-    public static User user;
-
-    public static User getInstance() {
-        return user;
-    }
-
-    public static void setUserSingleton(User userSingleton) {
-        user = userSingleton;
-    }
 
     public User() {
     }
@@ -38,6 +30,15 @@ public class User implements Serializable {
         this.brithday = brithday;
         this.provider = provider;
         this.description = description;
+    }
+
+    public static User getInstance() {
+        return user;
+    }
+
+    public static void setUserSingleton(User userSingleton) {
+        user = userSingleton;
+        AppSettings.getInstance().setUserId(userSingleton.getId());
     }
 
     public String getEmail() {
@@ -81,6 +82,9 @@ public class User implements Serializable {
     }
 
     public String getId() {
+        if (id == null) {
+            return AppSettings.getInstance().getUserId();
+        }
         return id;
     }
 
