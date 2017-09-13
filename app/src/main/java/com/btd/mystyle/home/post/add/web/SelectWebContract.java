@@ -17,13 +17,29 @@ public interface SelectWebContract {
         void showSearch();
 
         void showDone();
+
+        void showReset();
+
+        void showNext();
+
+        void showBack();
+
+        void showBrowser();
     }
 
     interface Presenter extends BasePresenter {
 
         void onClickDone();
 
-        void onClickSearch();
+        void onClickClose();
+
+        void onClickBack();
+
+        void onClickNext();
+
+        void onClickReset();
+
+        void onClickOpenBrowser();
 
     }
 }

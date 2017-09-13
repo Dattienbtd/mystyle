@@ -14,7 +14,8 @@
     <dimen name="sp18">18sp</dimen>
     <dimen name="sp20">20sp</dimen>
     <dimen name="sp24">24sp</dimen>
-    <dimen name="sp28">18sp</dimen>
+    <dimen name="sp28">28sp</dimen>
+    <dimen name="sp30">30sp</dimen>
     <dimen name="sp40">40sp</dimen>
     <dimen name="sp60">60sp</dimen>
     <dimen name="sp133">13sp</dimen>

@@ -3,6 +3,7 @@ package com.btd.mystyle.home.post.add.web;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -62,7 +63,7 @@ public class SelectWebActivity extends BaseActivity implements SelectWebContract
 
     @Override
     public void showSearch() {
-        activitySelectWebBinding.webviewDetail.loadUrl("http://google.com");
+        finish();
     }
 
     @Override
@@ -72,6 +73,39 @@ public class SelectWebActivity extends BaseActivity implements SelectWebContract
         intent.putExtra(Constants.EXTRA_URL, activitySelectWebBinding.webviewDetail.getUrl());
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         finish();
+    }
+
+    @Override
+    public void showReset() {
+        activitySelectWebBinding.webviewDetail.reload();
+    }
+
+    @Override
+    public void showNext() {
+        if (activitySelectWebBinding.webviewDetail.canGoForward()) {
+            activitySelectWebBinding.webviewDetail.goForward();
+        }
+    }
+
+    @Override
+    public void showBack() {
+        if (activitySelectWebBinding.webviewDetail.canGoBack()) {
+            activitySelectWebBinding.webviewDetail.goBack();
+        }
+    }
+
+    @Override
+    public void showBrowser() {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(activitySelectWebBinding.webviewDetail.getUrl()));
+        startActivity(browserIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (activitySelectWebBinding.webviewDetail.canGoBack()) {
+            activitySelectWebBinding.webviewDetail.goBack();
+        } else
+            super.onBackPressed();
     }
 
     private class DetailWebViewClient extends WebViewClient {
@@ -99,13 +133,5 @@ public class SelectWebActivity extends BaseActivity implements SelectWebContract
             return super.shouldOverrideUrlLoading(view, request);
 
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (activitySelectWebBinding.webviewDetail.canGoBack()) {
-            activitySelectWebBinding.webviewDetail.goBack();
-        } else
-            super.onBackPressed();
     }
 }

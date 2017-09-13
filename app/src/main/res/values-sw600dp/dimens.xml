@@ -27,7 +27,10 @@
     30.0sp
   </dimen>
   <dimen name="sp28">
-    22.5sp
+    35.0sp
+  </dimen>
+  <dimen name="sp30">
+    37.5sp
   </dimen>
   <dimen name="sp40">
     50.0sp

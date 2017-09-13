@@ -22,8 +22,28 @@ public class SelectWebPresenter implements SelectWebContract.Presenter {
     }
 
     @Override
-    public void onClickSearch() {
+    public void onClickClose() {
         mSelectView.showSearch();
+    }
+
+    @Override
+    public void onClickBack() {
+        mSelectView.showBack();
+    }
+
+    @Override
+    public void onClickNext() {
+        mSelectView.showNext();
+    }
+
+    @Override
+    public void onClickReset() {
+        mSelectView.showReset();
+    }
+
+    @Override
+    public void onClickOpenBrowser() {
+        mSelectView.showBrowser();
     }
 
     @Override

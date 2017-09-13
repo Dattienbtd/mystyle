@@ -33,4 +33,7 @@
     <string name="favorite_on"></string>
     <string name="favorite_off"></string>
 
+    <!--SelectWebActivity-->
+    <string name="select_title">Please select the correct product link !</string>
+
 </resources>

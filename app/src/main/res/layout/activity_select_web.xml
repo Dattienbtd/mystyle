@@ -6,6 +6,8 @@
 
         <import type="android.view.View"></import>
 
+        <import type="com.btd.mystyle.utils.FontUtils.FontStyle"></import>
+
         <variable
             name="viewmodel"
             type="com.btd.mystyle.home.post.add.web.SelectWebViewModel"></variable>
@@ -51,11 +53,18 @@
                         android:gravity="center"
                         android:text="Select website" />
 
-                    <Button
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="@dimen/dp80"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:onClick="@{()-> Presenter.onClickSearch()}" />
+                        android:layout_centerVertical="true"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:onClick="@{()-> Presenter.onClickClose()}"
+                        android:padding="@dimen/dp4"
+                        android:text=""
+                        android:textSize="@dimen/sp30"
+                        app:font="@{FontStyle.DESIGN_ICON}" />
 
                 </RelativeLayout>
             </android.support.v7.widget.Toolbar>
@@ -77,15 +86,93 @@
             </WebView>
         </android.support.v4.widget.NestedScrollView>
 
-        <Button
-            android:layout_width="@dimen/dp45"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp40"
+            android:background="@android:color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/select_title"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/sp20"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp45"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="@dimen/dp45"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="@dimen/dp15"
-            android:layout_marginEnd="@dimen/dp15"
-            android:layout_marginRight="@dimen/dp15"
-            android:gravity="center"
-            android:onClick="@{()-> Presenter.onClickDone()}" />
+            android:layout_gravity="bottom"
+            android:background="@android:color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickBack()}"
+                android:text=""
+                android:textSize="@dimen/sp30"
+                app:font="@{FontStyle.DESIGN_ICON}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickNext()}"
+                android:text=""
+                android:textSize="@dimen/sp30"
+                app:font="@{FontStyle.DESIGN_ICON}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickReset()}"
+                android:text=""
+                android:textSize="@dimen/sp28"
+                app:font="@{FontStyle.DESIGN_ICON}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickOpenBrowser()}"
+                android:text=""
+                android:textSize="@dimen/sp24"
+                app:font="@{FontStyle.DESIGN_ICON}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> Presenter.onClickDone()}"
+                android:text=""
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/sp28"
+                app:font="@{FontStyle.DESIGN_ICON}" />
+        </LinearLayout>
+
 
         <ProgressBar
             style="?android:attr/progressBarStyle"
